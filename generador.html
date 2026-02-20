@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Alumnos</title>
+    <script src="./js/app.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; }
+        .controles { margin-bottom: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .salida-datos { background: #f4f4f4; padding: 15px; border-radius: 5px; font-family: monospace; overflow-x: auto; min-height: 100px; }
+        button, select, input { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h2>Generador Aleatorio de Estudiantes</h2>
+    
+    <div class="controles">
+        <label for="numRegistros">Cantidad de registros:</label>
+        <input type="number" id="numRegistros" value="1" min="1" max="50000">
+        
+        <button onclick="document.getElementById('numRegistros').value=1;">1 Alumno</button>
+        <button onclick="document.getElementById('numRegistros').value=50000;">50,000 Alumnos</button>
+        
+        <label for="formatoSalida">Formato:</label>
+        <select id="formatoSalida">
+            <option value="sql">SQL (MySQL/MariaDB)</option>
+            <option value="postgres">PostgreSQL</option>
+            <option value="csv">CSV</option>
+            <option value="json">JSON</option>
+        </select>
+        
+        <button onclick="iniciarCreacion()">Generar</button>
+        <button onclick="descargarArchivo()">Guardar</button>
+    </div>
+
+    <div class="salida-datos" id="areaResultado">Esperando generación de datos...</div>
+</body>
+</html>
